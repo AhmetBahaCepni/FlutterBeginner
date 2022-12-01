@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,13 +14,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          toolbarHeight: 40,
+          backgroundColor: Colors.blueGrey,
           centerTitle: true,
           title: Text(
             "What should i eat today?",
-            style: TextStyle(color: Colors.black),
+            style:
+                TextStyle(color: Colors.black, fontSize: 24, letterSpacing: 1),
           ),
         ),
         body: FoodPage(),
@@ -37,6 +40,7 @@ class _FoodPageState extends State<FoodPage> {
   int corbaNo = 1;
   int yemekNo = 1;
   int tatliNo = 1;
+  int temp = 0;
   List<String> corbalistesi = [
     "Mercimek Çorbası",
     "Tarhana Çorbası",
@@ -65,56 +69,63 @@ class _FoodPageState extends State<FoodPage> {
         children: <Widget>[
           Expanded(
               child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: FlatButton(
-                highlightColor: Colors.white,
-                splashColor: Colors.white,
-                onPressed: () {
-                  setState(() {
+            padding: const EdgeInsets.all(1.0),
+            child: TextButton(
+              onPressed: () {
+                setState(() {
+                  temp = corbaNo;
+                  while (corbaNo == temp) {
                     corbaNo = Random().nextInt(5) + 1;
-                  });
-                },
-                child: Image.asset("assets/corba_$corbaNo.jpg")),
+                  }
+                });
+              },
+              child: Image(
+                  image: AssetImage(
+                "assets/corba_$corbaNo.jpg",
+              )),
+            ),
           )),
           Text(
             "${corbalistesi[corbaNo - 1]}",
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
           ),
           Container(width: 200, child: Divider(height: 5, color: Colors.black)),
           Expanded(
               child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: FlatButton(
-                highlightColor: Colors.white,
-                splashColor: Colors.white,
+            padding: const EdgeInsets.all(1),
+            child: TextButton(
                 onPressed: () {
                   setState(() {
-                    yemekNo = Random().nextInt(5) + 1;
+                    temp = yemekNo;
+                    while (yemekNo == temp) {
+                      yemekNo = Random().nextInt(5) + 1;
+                    }
                   });
                 },
                 child: Image.asset("assets/yemek_$yemekNo.jpg")),
           )),
           Text(
             "${yemeklistesi[yemekNo - 1]}",
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
           ),
           Container(width: 200, child: Divider(height: 5, color: Colors.black)),
           Expanded(
               child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: FlatButton(
-                highlightColor: Colors.white,
-                splashColor: Colors.white,
+            padding: const EdgeInsets.all(1),
+            child: TextButton(
                 onPressed: () {
                   setState(() {
-                    tatliNo = Random().nextInt(5) + 1;
+                    temp = tatliNo;
+                    while (tatliNo == temp) {
+                      tatliNo = Random().nextInt(5) + 1;
+                    }
                   });
                 },
                 child: Image.asset("assets/tatli_$tatliNo.jpg")),
           )),
           Text(
             "${tatlilistesi[tatliNo - 1]}",
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
           ),
         ],
       ),
