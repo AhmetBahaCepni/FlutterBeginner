@@ -21,7 +21,7 @@ class XylophoneApp extends StatelessWidget {
                 color: Colors.white),
           ),
         ),
-        backgroundColor: Colors.white60,
+        backgroundColor: Colors.white30,
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
