@@ -51,10 +51,9 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             ),
           ),
         ),
-        Wrap(
-          alignment: WrapAlignment.center,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: secimler,
-          spacing: 5,
         ),
         Expanded(
           flex: 1,
@@ -64,40 +63,42 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                 Expanded(
                     child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 6),
-                        child: RaisedButton(
-                          padding: EdgeInsets.all(12),
-                          textColor: Colors.white,
-                          color: Colors.red[400],
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.red[400],
+                            padding: EdgeInsets.symmetric(vertical: 12),
+                          ),
                           child: Icon(Icons.thumb_down, size: 30.0),
                           onPressed: () {
                             setState(() {
-                              if (test_1.getSoruYaniti() == false) {
-                                secimler.add(correctIcon);
-                              } else {
-                                secimler.add(uncorrectIcon);
+                              if (test_1.isValid()) {
+                                if (test_1.getSoruYaniti() == false) {
+                                  secimler.add(correctIcon);
+                                } else {
+                                  secimler.add(uncorrectIcon);
+                                }
                               }
-
-                              test_1.sonrakiSoru();
                             });
                           },
                         ))),
                 Expanded(
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 6),
-                    child: RaisedButton(
-                      padding: EdgeInsets.all(12),
-                      textColor: Colors.white,
-                      color: Colors.green[400],
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.green[400],
+                        padding: EdgeInsets.all(12),
+                      ),
                       child: Icon(Icons.thumb_up, size: 30.0),
                       onPressed: () {
                         setState(() {
-                          if (test_1.getSoruYaniti() == true) {
-                            secimler.add(correctIcon);
-                          } else {
-                            secimler.add(uncorrectIcon);
+                          if (test_1.isValid()) {
+                            if (test_1.getSoruYaniti() == true) {
+                              secimler.add(correctIcon);
+                            } else {
+                              secimler.add(uncorrectIcon);
+                            }
                           }
-
-                          test_1.sonrakiSoru();
                         });
                       },
                     ),

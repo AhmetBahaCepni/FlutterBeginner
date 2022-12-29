@@ -7,7 +7,7 @@ class Quizzler extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: Colors.brown[700],
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -45,6 +45,10 @@ class _QuizPageState extends State<QuizPage> {
     Icons.remove_circle,
     color: Colors.red,
   );
+  dynamic final_text = Text(
+    "Congrats!",
+    style: TextStyle(color: Colors.white, fontSize: 40),
+  );
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -67,24 +71,14 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        if(currentQ == qNum){
-          Expanded(
-            flex: 5,
-            child: Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Center(
-                child: Text(
-                  questions[currentQ],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 25.0,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 150),
+          child: Expanded(
+            child: [
+              if (qNum == currentQ) final_text,
+            ],
           ),
-        };
+        ),
         Expanded(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 20),

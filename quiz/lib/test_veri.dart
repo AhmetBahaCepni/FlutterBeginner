@@ -16,7 +16,8 @@ class TestVeri {
         soruYaniti: true),
     Soru(
         soruMetni: "Fatih Sultan Mehmet hiç patates yememiştir",
-        soruYaniti: true)
+        soruYaniti: true),
+    Soru(soruMetni: "Thanks For PLAYING!", soruYaniti: true),
   ];
 
   String getSoruMetni() {
@@ -27,9 +28,11 @@ class TestVeri {
     return _soruListesi[_soruNumarasi].soruYaniti;
   }
 
-  void sonrakiSoru() {
+  bool isValid() {
     if (_soruNumarasi < _soruListesi.length - 1) {
       _soruNumarasi++;
-    }
+      return true;
+    } else
+      return false;
   }
 }
