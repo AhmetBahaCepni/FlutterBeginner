@@ -13,14 +13,21 @@ class _InputPageState extends State<InputPage> {
   dynamic pickedGender;
   double smokedDaily = 0.0;
   double sportWeekly = 0.0;
-
+  int height = 170;
+  int weight = 60;
+  int age = 18;
+  int lifexpectancy = ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 80,
         title: Text(
-          'LIFE EXPECTANCY',
-          style: TextStyle(color: Colors.black54, letterSpacing: 2.5),
+          'LIFE EXPECTANCY = $lifexpectancy',
+          style: TextStyle(
+              color: Colors.black54,
+              letterSpacing: 2.5,
+              fontWeight: FontWeight.w700),
         ),
         centerTitle: true,
       ),
@@ -36,20 +43,149 @@ class _InputPageState extends State<InputPage> {
                       children: [
                         RotatedBox(
                           quarterTurns: 3,
-                          child: Text("Height", style: myStringStyle),
+                          child: Text("Age", style: myStringStyle),
                         ),
                         RotatedBox(
                           quarterTurns: 3,
-                          child: Text("180", style: myIntStyle),
+                          child: Text("$age", style: myIntStyle),
                         ),
                         Column(
-                          children: [],
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                        color: Colors.blue, width: 0.5)),
+                                onPressed: () {
+                                  age++;
+                                  setState(() {});
+                                },
+                                child: Icon(FontAwesomeIcons.plus),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                        color: Colors.blue, width: 0.5)),
+                                onPressed: () {
+                                  if (age > 15) age--;
+                                  setState(() {});
+                                },
+                                child: Icon(FontAwesomeIcons.minus),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
                   ),
                 ),
-                Expanded(child: ContainerWidget(child: Container())),
+                Expanded(
+                  child: ContainerWidget(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        RotatedBox(
+                          quarterTurns: 3,
+                          child: Text("Height", style: myStringStyle),
+                        ),
+                        RotatedBox(
+                          quarterTurns: 3,
+                          child: Text("$height", style: myIntStyle),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                        color: Colors.blue, width: 0.5)),
+                                onPressed: () {
+                                  height++;
+                                  setState(() {});
+                                },
+                                child: Icon(FontAwesomeIcons.plus),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                        color: Colors.blue, width: 0.5)),
+                                onPressed: () {
+                                  height--;
+                                  setState(() {});
+                                },
+                                child: Icon(FontAwesomeIcons.minus),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ContainerWidget(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        RotatedBox(
+                          quarterTurns: 3,
+                          child: Text("Weight", style: myStringStyle),
+                        ),
+                        RotatedBox(
+                          quarterTurns: 3,
+                          child: Text("$weight", style: myIntStyle),
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                        color: Colors.blue, width: 0.5)),
+                                onPressed: () {
+                                  weight++;
+                                  setState(() {});
+                                },
+                                child: Icon(FontAwesomeIcons.plus),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                    side: BorderSide(
+                                        color: Colors.blue, width: 0.5)),
+                                onPressed: () {
+                                  weight--;
+                                  setState(() {});
+                                },
+                                child: Icon(FontAwesomeIcons.minus),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

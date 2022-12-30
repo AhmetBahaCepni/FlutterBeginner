@@ -45,4 +45,4 @@ final TextStyle myStringStyle =
     TextStyle(color: Colors.black54, fontSize: 20, fontWeight: FontWeight.bold);
 
 final TextStyle myIntStyle =
-    TextStyle(color: Colors.black54, fontSize: 25, fontWeight: FontWeight.bold);
+    TextStyle(color: Colors.blue, fontSize: 25, fontWeight: FontWeight.bold);
