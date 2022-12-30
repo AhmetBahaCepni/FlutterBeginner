@@ -17,32 +17,32 @@ class TextIconWidget extends StatelessWidget {
           color: Colors.black54,
         ),
         SizedBox(height: 15),
-        Text(
-          gender,
-          style: TextStyle(
-              color: Colors.black54, fontSize: 20, fontWeight: FontWeight.bold),
-        )
+        Text(gender, style: myStringStyle)
       ],
     );
   }
 }
 
-class ExpandedContainerWidget extends StatelessWidget {
-  final Color renk;
+class ContainerWidget extends StatelessWidget {
+  final Color color;
   final Widget child;
-  ExpandedContainerWidget({this.renk = Colors.white, required this.child});
+  ContainerWidget({this.color = Colors.white70, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        child: child,
-        margin: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: renk,
-        ),
+    return Container(
+      child: child,
+      margin: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: color,
       ),
     );
   }
 }
+
+final TextStyle myStringStyle =
+    TextStyle(color: Colors.black54, fontSize: 20, fontWeight: FontWeight.bold);
+
+final TextStyle myIntStyle =
+    TextStyle(color: Colors.black54, fontSize: 25, fontWeight: FontWeight.bold);
