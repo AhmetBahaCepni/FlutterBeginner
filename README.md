@@ -1,3 +1,3 @@
 # FlutterBeginner
 
-This is my Repository for storing **beginner** level applications.
+This is my Repository for **beginner** level Flutter applications.
